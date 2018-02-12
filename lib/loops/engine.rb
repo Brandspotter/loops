@@ -108,7 +108,7 @@ class Loops::Engine
       begin
         klass_file = klass_files.shift
         debug "Loading class file: #{klass_file}"
-        require(klass_file)
+        require(klass_file.to_s)
       rescue LoadError
         retry unless klass_files.empty?
         error "Can't load the class file: #{klass_file}. Worker #{name} won't be started!"
